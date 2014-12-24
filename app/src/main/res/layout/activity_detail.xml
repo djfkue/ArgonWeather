@@ -1,0 +1,26 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.argonmobile.weather.DetailActivity">
+    <ImageView
+        android:id="@+id/weather_banner"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/weather_banner"/>
+
+    <TextView
+        android:id="@+id/city_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:padding="8dp"
+        android:layout_below="@+id/weather_banner"
+        android:text="Nanjing"
+        android:textColor="@color/primary_text_default_material_dark"
+        android:fontFamily="sans-serif-light"
+        android:background="?attr/colorPrimary"/>
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"/>
+</RelativeLayout>
