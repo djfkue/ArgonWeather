@@ -4,17 +4,22 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
-import android.support.v4.app.NavUtils;
+import android.support.v4.app.SharedElementCallback;
 import android.support.v4.util.Pair;
 import android.support.v4.view.ViewCompat;
+import android.support.v4.view.ViewPropertyAnimatorCompat;
+import android.support.v4.view.ViewPropertyAnimatorListener;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.util.List;
 
 
 public class DetailActivity extends ActionBarActivity {
@@ -38,18 +43,36 @@ public class DetailActivity extends ActionBarActivity {
 
         setContentView(R.layout.activity_detail);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         if (toolbar != null) {
             setSupportActionBar(toolbar);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
-        toolbar.setBackgroundColor(Color.TRANSPARENT);
+        toolbar.bringToFront();
 
         ImageView image = (ImageView) findViewById(R.id.weather_banner);
         ViewCompat.setTransitionName(image, EXTRA_IMAGE);
 
         TextView cityName = (TextView) findViewById(R.id.city_name);
         ViewCompat.setTransitionName(cityName, EXTRA_CITY);
+
+        ViewCompat.setTransitionName(toolbar, "toolbar");
+
+        ActivityCompat.setEnterSharedElementCallback(this, new SharedElementCallback() {
+            @Override
+            public void onSharedElementStart(List<String> sharedElementNames, List<View> sharedElements, List<View> sharedElementSnapshots) {
+                super.onSharedElementStart(sharedElementNames, sharedElements, sharedElementSnapshots);
+                Log.e("SD_TRACE", "share element start");
+            }
+
+            @Override
+            public void onSharedElementEnd(List<String> sharedElementNames,
+                                           List<View> sharedElements, List<View> sharedElementSnapshots) {
+                super.onSharedElementEnd(sharedElementNames, sharedElements, sharedElementSnapshots);
+                Log.e("SD_TRACE", "share element end");
+                toolbar.setBackgroundColor(Color.TRANSPARENT);
+            }
+        });
     }
 
 

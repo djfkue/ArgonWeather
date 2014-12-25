@@ -18,7 +18,8 @@
         </activity>
         <activity
             android:name=".DetailActivity"
-            android:parentActivityName="com.argonmobile.weather.MainActivity">
+            android:parentActivityName="com.argonmobile.weather.MainActivity"
+            android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />

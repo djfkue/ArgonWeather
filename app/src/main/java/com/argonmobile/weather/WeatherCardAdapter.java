@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.TextView;
 
 /**
@@ -27,7 +28,9 @@ public class WeatherCardAdapter extends RecyclerView.Adapter<WeatherCardAdapter.
         public void onClick(View v) {
             DetailActivity.launch((ActionBarActivity) v.getContext(),
                     Pair.create(v.findViewById(R.id.weather_banner), DetailActivity.EXTRA_IMAGE),
-                    Pair.create(v.findViewById(R.id.text), DetailActivity.EXTRA_CITY));
+                    Pair.create(v.findViewById(R.id.text), DetailActivity.EXTRA_CITY),
+                    Pair.create(((ActionBarActivity)v.getContext()).findViewById(R.id.toolbar),
+                            "toolbar"));
         }
     }
 
