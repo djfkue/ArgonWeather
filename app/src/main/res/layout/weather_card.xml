@@ -26,12 +26,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-            android:padding="8dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:layout_marginLeft="8dp"
             android:layout_alignBottom="@+id/weather_banner"
             android:layout_gravity="bottom"
             android:text="Nanjing"
             android:textColor="@android:color/white"
-            android:background="#3000"
+            android:shadowColor="@android:color/black"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="1"
             android:fontFamily="sans-serif-light"/>
 
         <ImageView

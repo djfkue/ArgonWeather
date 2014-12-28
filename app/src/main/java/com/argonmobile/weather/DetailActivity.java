@@ -48,6 +48,7 @@ public class DetailActivity extends ActionBarActivity {
             setSupportActionBar(toolbar);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
+        toolbar.setBackgroundColor(Color.TRANSPARENT);
         toolbar.bringToFront();
 
         ImageView image = (ImageView) findViewById(R.id.weather_banner);
@@ -70,7 +71,6 @@ public class DetailActivity extends ActionBarActivity {
                                            List<View> sharedElements, List<View> sharedElementSnapshots) {
                 super.onSharedElementEnd(sharedElementNames, sharedElements, sharedElementSnapshots);
                 Log.e("SD_TRACE", "share element end");
-                toolbar.setBackgroundColor(Color.TRANSPARENT);
             }
         });
     }
