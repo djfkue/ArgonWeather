@@ -13,7 +13,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-
+import android.widget.ImageView;
+import android.widget.TextView;
 
 public class MainActivity extends ActionBarActivity {
 
@@ -77,10 +78,24 @@ public class MainActivity extends ActionBarActivity {
         // Provide a reference to the views for each data item
         // Complex data items may need more than one view per item, and
         // you provide access to all the views for a data item in a view holder
-        public  class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+        public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+
+            public ImageView mWeatherBanner;
+            public ImageView mWeatherIcon;
+            public TextView mCityName;
+            public TextView mCurrentTemp;
+            public TextView mHighTemp;
+            public TextView mLowTemp;
+
             // each data item is just a string in this case
             public ViewHolder(View v) {
                 super(v);
+                mWeatherBanner = (ImageView) v.findViewById(R.id.weather_banner);
+                mCityName = (TextView) v.findViewById(R.id.text);
+                mCurrentTemp = (TextView) v.findViewById(R.id.current_temp);
+                mHighTemp = (TextView) v.findViewById(R.id.current_high_temp);
+                mLowTemp = (TextView) v.findViewById(R.id.current_low_temp);
+                mWeatherIcon = (ImageView) v.findViewById(R.id.weather_icon);
             }
 
             @Override
@@ -117,7 +132,26 @@ public class MainActivity extends ActionBarActivity {
             // - get element from your dataset at this position
             // - replace the contents of the view with that element
             //holder.mTextView.setText(mDataset[position]);
-
+            switch (position) {
+                case 0:
+                    holder.mWeatherBanner.setImageResource(R.drawable.new_york_night);
+                    holder.mCurrentTemp.setText("42" + "\u00B0");
+                    holder.mLowTemp.setText("\u2193" + "49" + "\u00B0");
+                    holder.mHighTemp.setText("\u2191" + "38" + "\u00B0");
+                    holder.mCityName.setText("New York");
+                    holder.mWeatherIcon.setImageResource(R.drawable.art_clear);
+                    break;
+                case 1:
+                    holder.mWeatherBanner.setImageResource(R.drawable.berlin_day);
+                    holder.mCurrentTemp.setText("30" + "\u00B0");
+                    holder.mLowTemp.setText("\u2193" + "27" + "\u00B0");
+                    holder.mHighTemp.setText("\u2191" + "34" + "\u00B0");
+                    holder.mCityName.setText("Berlin");
+                    holder.mWeatherIcon.setImageResource(R.drawable.art_snow);
+                    break;
+                default:
+                    break;
+            }
         }
 
         // Return the size of your dataset (invoked by the layout manager)
@@ -126,5 +160,4 @@ public class MainActivity extends ActionBarActivity {
             return 3;
         }
     }
-
 }
