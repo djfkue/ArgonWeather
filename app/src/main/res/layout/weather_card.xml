@@ -64,7 +64,7 @@
                 android:layout_centerVertical="true"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display3"
                 android:gravity="center"
-                android:text="22&#xb0;"
+                android:text="14&#xb0;"
                 android:textColor="@color/primary_text_default_material_light"
                 android:fontFamily="sans-serif-thin"/>
             <TextView
@@ -78,7 +78,7 @@
                 android:layout_marginRight="4dp"
                 android:layout_marginBottom="8dp"
                 android:gravity="center"
-                android:text="F"
+                android:text="C"
                 android:textColor="@color/primary_text_default_material_light"
                 android:fontFamily="sans-serif-thin"/>
             <TextView
@@ -90,8 +90,9 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:padding="8dp"
                 android:gravity="center"
-                android:text="&#x2191;26&#xb0;"
-                android:textColor="@color/secondary_text_default_material_light"/>
+                android:text="&#x2191;14&#xb0;"
+                android:textColor="@color/secondary_text_default_material_light"
+                android:fontFamily="sans-serif-thin"/>
             <TextView
                 android:id="@+id/current_low_temp"
                 android:layout_width="wrap_content"
@@ -101,8 +102,9 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:padding="8dp"
                 android:gravity="center"
-                android:text="&#x2193;18&#xb0;"
-                android:textColor="@color/secondary_text_default_material_light"/>
+                android:text="&#x2193;2&#xb0;"
+                android:textColor="@color/secondary_text_default_material_light"
+                android:fontFamily="sans-serif-thin"/>
         </RelativeLayout>
 
         <!--<View-->

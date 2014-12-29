@@ -135,17 +135,17 @@ public class MainActivity extends ActionBarActivity {
             switch (position) {
                 case 0:
                     holder.mWeatherBanner.setImageResource(R.drawable.new_york_night);
-                    holder.mCurrentTemp.setText("42" + "\u00B0");
-                    holder.mLowTemp.setText("\u2193" + "49" + "\u00B0");
-                    holder.mHighTemp.setText("\u2191" + "38" + "\u00B0");
+                    holder.mCurrentTemp.setText("4" + "\u00B0");
+                    holder.mLowTemp.setText("\u2193" + "0" + "\u00B0");
+                    holder.mHighTemp.setText("\u2191" + "7" + "\u00B0");
                     holder.mCityName.setText("New York");
                     holder.mWeatherIcon.setImageResource(R.drawable.art_clear);
                     break;
                 case 1:
                     holder.mWeatherBanner.setImageResource(R.drawable.berlin_day);
-                    holder.mCurrentTemp.setText("30" + "\u00B0");
-                    holder.mLowTemp.setText("\u2193" + "27" + "\u00B0");
-                    holder.mHighTemp.setText("\u2191" + "34" + "\u00B0");
+                    holder.mCurrentTemp.setText("-4" + "\u00B0");
+                    holder.mLowTemp.setText("\u2193" + "-4" + "\u00B0");
+                    holder.mHighTemp.setText("\u2191" + "-2" + "\u00B0");
                     holder.mCityName.setText("Berlin");
                     holder.mWeatherIcon.setImageResource(R.drawable.art_snow);
                     break;
