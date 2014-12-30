@@ -133,7 +133,7 @@ public class MainActivity extends ActionBarActivity {
             // - replace the contents of the view with that element
             //holder.mTextView.setText(mDataset[position]);
             switch (position) {
-                case 0:
+                case 2:
                     holder.mWeatherBanner.setImageResource(R.drawable.new_york_night);
                     holder.mCurrentTemp.setText("4" + "\u00B0");
                     holder.mLowTemp.setText("\u2193" + "0" + "\u00B0");

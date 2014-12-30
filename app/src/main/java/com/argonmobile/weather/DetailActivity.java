@@ -1,5 +1,8 @@
 package com.argonmobile.weather;
 
+import android.animation.Animator;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.v4.app.ActivityCompat;
@@ -16,6 +19,10 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewAnimationUtils;
+import android.view.ViewTreeObserver;
+import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -54,11 +61,13 @@ public class DetailActivity extends ActionBarActivity {
         ImageView image = (ImageView) findViewById(R.id.weather_banner);
         ViewCompat.setTransitionName(image, EXTRA_IMAGE);
 
-        TextView cityName = (TextView) findViewById(R.id.city_name);
+        final TextView cityName = (TextView) findViewById(R.id.city_name);
         ViewCompat.setTransitionName(cityName, EXTRA_CITY);
 
         ViewCompat.setTransitionName(toolbar, "toolbar");
 
+        final View containerView = findViewById(R.id.main_condition);
+        containerView.setVisibility(View.INVISIBLE);
         ActivityCompat.setEnterSharedElementCallback(this, new SharedElementCallback() {
             @Override
             public void onSharedElementStart(List<String> sharedElementNames, List<View> sharedElements, List<View> sharedElementSnapshots) {
@@ -71,6 +80,31 @@ public class DetailActivity extends ActionBarActivity {
                                            List<View> sharedElements, List<View> sharedElementSnapshots) {
                 super.onSharedElementEnd(sharedElementNames, sharedElements, sharedElementSnapshots);
                 Log.e("SD_TRACE", "share element end");
+
+                View containerView = findViewById(R.id.main_condition);
+                //containerView.setAlpha(0.0f);
+                containerView.setVisibility(View.VISIBLE);
+                Animator animator = ViewAnimationUtils.createCircularReveal(
+                        containerView,
+                        containerView.getWidth() / 2,
+                        0,
+                        0,
+                        (float) Math.hypot(containerView.getWidth()/2, containerView.getHeight()));
+
+                animator.setInterpolator(new AccelerateDecelerateInterpolator());
+                animator.setDuration(800);
+                // Finally start the animation
+                animator.start();
+            }
+        });
+        ActivityCompat.postponeEnterTransition(this);
+
+        containerView.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
+            @Override
+            public boolean onPreDraw() {
+                containerView.getViewTreeObserver().removeOnPreDrawListener(this);
+                ActivityCompat.startPostponedEnterTransition(DetailActivity.this);
+                return false;
             }
         });
     }

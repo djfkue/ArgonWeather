@@ -1,7 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
+    android:background="@color/bright_foreground_disabled_material_dark"
     tools:context="com.argonmobile.weather.DetailActivity">
 
     <include
@@ -36,7 +36,8 @@
         android:id="@+id/main_condition"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/weather_banner">
+        android:layout_below="@+id/weather_banner"
+        android:background="@android:color/white">
 
         <TextView
             android:id="@+id/current_weather_condition"
@@ -214,9 +215,9 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Caption"
             android:textColor="@color/primary_text_disabled_material_light"/>
     </RelativeLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_below="@+id/main_condition"
-        android:background="@color/divider"/>
+    <!--<View-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="1dp"-->
+        <!--android:layout_below="@+id/main_condition"-->
+        <!--android:background="@color/divider"/>-->
 </RelativeLayout>
